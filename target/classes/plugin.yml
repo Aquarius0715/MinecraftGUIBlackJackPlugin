@@ -1,0 +1,5 @@
+name: Minecraftplugin
+version: 1.0
+main: aquarius0715.minecraftplugin.Main
+commands:
+  blackjack:
