@@ -33,6 +33,8 @@ public final class Main extends JavaPlugin implements Listener {
     ItemMeta STAND_meta = STAND.getItemMeta();
     ItemStack BUST = new ItemStack(Material.BARRIER);
     ItemMeta BUST_meta = BUST.getItemMeta();
+    ItemStack BLACKJACK = new ItemStack((Material.END_CRYSTAL));
+    ItemMeta BLACKJACK_meta = BLACKJACK.getItemMeta();
     //点数
     int my_score;
 
@@ -58,6 +60,11 @@ public final class Main extends JavaPlugin implements Listener {
             player.openInventory(inv);
             return true;
         }
+        if (args.length == 1) {
+            if (args[0].equalsIgnoreCase("reset")) {
+                inv.clear();
+            }
+        }
         return false;
     }
 
@@ -81,8 +88,17 @@ public final class Main extends JavaPlugin implements Listener {
                     inv.setItem(31, BUST);
                     break;
                 }
+                if (my_score == 21) {
+                    BLACKJACK_meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "BLACKJACK");
+                    BLACKJACK.setItemMeta(BLACKJACK_meta);
+                    inv.setItem(31, BLACKJACK);
+                    break;
+                }
                 int card_number = new Random().nextInt(13);
-                String card_number_word = Integer.toString(card_number + 1);
+                if (card_number >= 10) {
+                    card_number = 10;
+                }
+                String card_number_word = Integer.toString(card_number);
                 card_meta.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + card_number_word);
                 card.setItemMeta(card_meta);
                 coordinate++;
@@ -97,6 +113,16 @@ public final class Main extends JavaPlugin implements Listener {
 
                 break;
 
+        }
+        if (my_score > 21) {
+            BUST_meta.setDisplayName(ChatColor.DARK_RED + "" + ChatColor.BOLD + "バスト");
+            BUST.setItemMeta(BUST_meta);
+            inv.setItem(31, BUST);
+        }
+        if (my_score == 21) {
+            BLACKJACK_meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "BLACKJACK");
+            BLACKJACK.setItemMeta(BLACKJACK_meta);
+            inv.setItem(31, BLACKJACK);
         }
     }
 
@@ -130,13 +156,19 @@ public final class Main extends JavaPlugin implements Listener {
         //自分のカードの作成
 
         int card_number = new Random().nextInt(13);
-        String card_number_word = Integer.toString(card_number + 1);
+        if (card_number >= 10) {
+            card_number = 10;
+        }
+        String card_number_word = Integer.toString(card_number);
         card_meta.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + card_number_word);
         card.setItemMeta(card_meta);
         inv.setItem(coordinate, card);
 
         int card_number1 = new Random().nextInt(13);
-        String card_number_word1 = Integer.toString(card_number1 + 1);
+        if (card_number1 >= 10) {
+            card_number = 10;
+        }
+        String card_number_word1 = Integer.toString(card_number1);
         card_meta.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + card_number_word1);
         card.setItemMeta(card_meta);
         coordinate++;
@@ -145,13 +177,19 @@ public final class Main extends JavaPlugin implements Listener {
         //相手のカードの作成
 
         int card_number2 = new Random().nextInt(13);
-        String card_number_word2 = Integer.toString(card_number2 + 1);
+        if (card_number2 >= 10) {
+            card_number2 = 10;
+        }
+        String card_number_word2 = Integer.toString(card_number2);
         card_meta.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + card_number_word2);
         card.setItemMeta(card_meta);
         inv.setItem(8, card);
 
         int card_number3 = new Random().nextInt(13);
-        String card_number_word3 = Integer.toString(card_number3 + 1);
+        if (card_number3 >= 10) {
+            card_number3 = 10;
+        }
+        String card_number_word3 = Integer.toString(card_number3);
         card_meta.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + card_number_word3);
         card.setItemMeta(card_meta);
         inv.setItem(7, card);
