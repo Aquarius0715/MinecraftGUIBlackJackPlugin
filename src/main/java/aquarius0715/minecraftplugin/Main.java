@@ -10,8 +10,9 @@ public final class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        this.getServer().getPluginManager().registerEvents(this, this);
+        this.getServer().getPluginManager().registerEvents(new BlackJackGameSystem(), this);
         this.getCommand("blackjack").setExecutor(new BlackJackCommand());
+
 
         // Plugin startup logic
 

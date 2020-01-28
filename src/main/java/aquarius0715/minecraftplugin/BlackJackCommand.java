@@ -41,7 +41,6 @@ public class BlackJackCommand implements CommandExecutor {
                 b.createMyInv();
                 b.createYourInv();
                 parent.openInventory(b.inv);
-                b.onClickGUI(); //問題点ここでonClickGUIが呼び出せない
                 child.openInventory(b.inv2);
 
 

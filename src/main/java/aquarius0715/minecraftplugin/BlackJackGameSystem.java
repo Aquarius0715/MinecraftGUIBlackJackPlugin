@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -11,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Random;
 
-public class BlackJackGameSystem {
+public class BlackJackGameSystem implements Listener {
 
     public Inventory inv;
     public Inventory inv2;
@@ -48,9 +49,15 @@ public class BlackJackGameSystem {
     String card_number_word3;
 
 
-    @EventHandler()
+    @EventHandler
     public void onClickGUI(InventoryClickEvent event) {
         if (!event.getInventory().equals(inv)) return;
+        if (event.getCurrentItem() == null) return;
+        if (event.getCurrentItem().getItemMeta() == null) return;
+        if (event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
+        event.setCancelled(true);
+
+        if (!event.getInventory().equals(inv2)) return;
         if (event.getCurrentItem() == null) return;
         if (event.getCurrentItem().getItemMeta() == null) return;
         if (event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
@@ -103,17 +110,6 @@ public class BlackJackGameSystem {
             BLACKJACK_meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "BLACKJACK");
             BLACKJACK.setItemMeta(BLACKJACK_meta);
             inv.setItem(31, BLACKJACK);
-        }
-    }
-
-    public void onClickYourGUI(InventoryClickEvent event) {
-        if (!event.getInventory().equals(inv2)) return;
-        if (event.getCurrentItem() == null) return;
-        if (event.getCurrentItem().getItemMeta() == null) return;
-        if (event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
-        event.setCancelled(true);
-
-        switch (event.getSlot()) {
         }
     }
 
