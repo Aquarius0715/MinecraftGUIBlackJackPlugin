@@ -54,7 +54,6 @@ public class BlackJackGameSystem {
         if (event.getCurrentItem() == null) return;
         if (event.getCurrentItem().getItemMeta() == null) return;
         if (event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
-
         event.setCancelled(true);
 
         switch (event.getSlot()) {
@@ -207,6 +206,7 @@ public class BlackJackGameSystem {
         STAND.setItemMeta(STAND_meta);
         inv.setItem(29, STAND);
 
+
     }
 
     public void createYourInv() {
@@ -289,6 +289,6 @@ public class BlackJackGameSystem {
         STAND.setItemMeta(STAND_meta);
         inv2.setItem(29, STAND);
 
-
     }
+
 }

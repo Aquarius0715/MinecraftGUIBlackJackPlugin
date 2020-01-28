@@ -6,15 +6,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.HashMap;
-import java.util.UUID;
 
 public class BlackJackCommand implements CommandExecutor {
 
     Player parent;
     Player child;
-
-    HashMap<UUID, String> joinplayers = new HashMap<UUID, String>();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -39,12 +35,14 @@ public class BlackJackCommand implements CommandExecutor {
                     Player player = (Player) sender;
                     Bukkit.broadcastMessage(player.getDisplayName() + "さんが参加しました");
                     this.child = player;
-                    BlackJackGameSystem b = new BlackJackGameSystem();
-                    b.createMyInv();
-                    b.createYourInv();
-                    parent.openInventory(b.inv);
-                    child.openInventory(b.inv2);
                 }
+
+                BlackJackGameSystem b = new BlackJackGameSystem();
+                b.createMyInv();
+                b.createYourInv();
+                parent.openInventory(b.inv);
+                b.onClickGUI(); //問題点ここでonClickGUIが呼び出せない
+                child.openInventory(b.inv2);
 
 
             }
