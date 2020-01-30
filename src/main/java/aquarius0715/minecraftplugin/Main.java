@@ -1,3 +1,4 @@
+
 package aquarius0715.minecraftplugin;
 
 import org.bukkit.event.Listener;
@@ -23,11 +24,5 @@ public final class Main extends JavaPlugin implements Listener {
     public void onDisable() {
         // Plugin shutdown logic
     }
-
-
-
-
-
-
 
 }
