@@ -1,6 +1,6 @@
 package aquarius0715.minecraftplugin;
 
-import org.bukkit.entity.Player;
+
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -8,15 +8,19 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 
 public class Events implements Listener {
 
-    BlackJackCommand b = new BlackJackCommand();
+    BlackJackCommand bc = new BlackJackCommand();
+    BlackJackGameSystem bg = new BlackJackGameSystem();
 
     @EventHandler
     public void onClickGUI(InventoryClickEvent event) {
-        b.child = (Player) event.getWhoClicked();
-        b.parent = (Player) event.getWhoClicked();
-        if (event.getClickedInventory() == event.getWhoClicked().getInventory()) {
-            return;
-        }
+        if (!event.getInventory().equals(bg.inv)) return;
+        if (event.getCurrentItem() == null) return;
+        if (event.getCurrentItem().getItemMeta() == null) return;
+        if (event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
+        if (!event.getInventory().equals(bg.inv2)) return;
+        if (event.getCurrentItem() == null) return;
+        if (event.getCurrentItem().getItemMeta() == null) return;
+        if (event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
         event.setCancelled(true);
     }
 }
