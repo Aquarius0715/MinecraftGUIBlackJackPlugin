@@ -49,7 +49,7 @@ public class BlackJackGameSystem implements Listener {
 
 
 
-    public void createMyInv() {
+    public void createInv() {
 
         //新しいインベントリを作成
         inv = Bukkit.createInventory(null, 54, ChatColor.BLACK + "" + ChatColor.BOLD + "BLACKJACK");
@@ -139,9 +139,7 @@ public class BlackJackGameSystem implements Listener {
         inv.setItem(29, STAND);
 
 
-    }
 
-    public void createYourInv() {
         //子のインベントリを作成
         inv2 = Bukkit.createInventory(null, 54, ChatColor.BLACK + "" + ChatColor.BOLD + "BLACKJACK");
 

@@ -1,6 +1,7 @@
 package aquarius0715.minecraftplugin;
 
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
 import java.util.Random;
@@ -8,6 +9,7 @@ import java.util.Random;
 public class Data implements Listener {
 
     BlackJackGameSystem b = new BlackJackGameSystem();
+    BlackJackCommand bc = new BlackJackCommand();
 
     public void HITChild() {
         //自分の点数が21を超えたらバスト
@@ -81,5 +83,11 @@ public class Data implements Listener {
 
     public void STANDParent() {
 
+    }
+
+    public void Help(Player player) {
+        player.sendMessage("/blackjack ブラックジャックを親として開始します");
+        player.sendMessage("/blackjack join 開始されたゲームに参加します");
+        player.sendMessage("/blackjack open ゲームのGUIを開きます");
     }
 }
