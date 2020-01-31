@@ -62,7 +62,6 @@ public class BlackJackCommand implements CommandExecutor {
                     parent.openInventory(b.inv);
                     child.openInventory(b.inv2);
                 }
-
                 if (args.length == 2) {
                     if (args[0].equalsIgnoreCase("open")) {
                         Player player = (Player) sender;
