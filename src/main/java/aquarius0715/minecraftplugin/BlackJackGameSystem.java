@@ -155,6 +155,8 @@ public class BlackJackGameSystem implements Listener {
         inv2.setItem(25, GUI);
         inv2.setItem(26, GUI);
         inv2.setItem(27, GUI);
+        inv2.setItem(28, GUI);
+        inv2.setItem(29, GUI);
         inv2.setItem(30, GUI);
         inv2.setItem(31, GUI);
         inv2.setItem(32, GUI);
@@ -198,16 +200,6 @@ public class BlackJackGameSystem implements Listener {
         card_meta.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + "自分のスコアは" + child_score);
         card.setItemMeta(card_meta);
         inv2.setItem(31, card);
-
-        //ヒット・スタンドボタンを作成
-
-        HIT_meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "HIT");
-        HIT.setItemMeta(HIT_meta);
-        inv2.setItem(28, HIT);
-
-        STAND_meta.setDisplayName(ChatColor.DARK_BLUE + "" + ChatColor.BOLD + "STAND");
-        STAND.setItemMeta(STAND_meta);
-        inv2.setItem(29, STAND);
 
     }
 

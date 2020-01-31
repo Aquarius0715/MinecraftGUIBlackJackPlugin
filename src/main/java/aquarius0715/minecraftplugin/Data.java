@@ -99,6 +99,16 @@ public class Data implements Listener {
 
     public void STANDParent() {
 
+        b.inv.setItem(28, b.GUI);
+        b.inv.setItem(29, b.GUI);
+
+        b.HIT_meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "HIT");
+        b.HIT.setItemMeta(b.HIT_meta);
+        b.inv2.setItem(28, b.HIT);
+
+        b.STAND_meta.setDisplayName(ChatColor.DARK_BLUE + "" + ChatColor.BOLD + "STAND");
+        b.STAND.setItemMeta(b.STAND_meta);
+        b.inv2.setItem(29, b.STAND);
     }
 
     public void Help(Player player) {
