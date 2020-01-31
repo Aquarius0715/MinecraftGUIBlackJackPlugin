@@ -35,18 +35,16 @@ public class BlackJackGameSystem implements Listener {
     int parent_score;
     int child_score;
     //自分のカード
-    int card_number = new Random().nextInt(13);
-    int card_number1 = new Random().nextInt(13);
+    int card_number = new Random().nextInt(13 + 1);
+    int card_number1 = new Random().nextInt(13 + 1);
     //相手のカード
-    int card_number2 = new Random().nextInt(13);
-    int card_number3 = new Random().nextInt(13);
+    int card_number2 = new Random().nextInt(13 + 1);
+    int card_number3 = new Random().nextInt(13 + 1);
     //文字のカード
     String card_number_word;
     String card_number_word1;
     String card_number_word2;
     String card_number_word3;
-
-
 
 
     public void createInv() {

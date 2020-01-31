@@ -28,7 +28,7 @@ public class Data implements Listener {
         }
 
         //新しいカードを引く処理
-        int card_number = new Random().nextInt(13);
+        int card_number = new Random().nextInt(13 + 1);
         if (card_number >= 10) {
             card_number = 10;
         }
@@ -60,7 +60,7 @@ public class Data implements Listener {
             return;
         }
         //新しいカードを引く処理
-        int card_number = new Random().nextInt(13);
+        int card_number = new Random().nextInt(13 + 1);
         if (card_number >= 10) {
             card_number = 10;
         }
