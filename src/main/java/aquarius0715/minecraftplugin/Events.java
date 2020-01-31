@@ -37,7 +37,8 @@ public class Events implements Listener {
                     d.HITParent();
                     break;
                 case 29:
-                    //TODO ここにスタンドボタンが押された時の処理を書く
+                    d.STANDParent();
+                    d.HITChild();
                     break;
 
             }

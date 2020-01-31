@@ -35,12 +35,20 @@ public class Data implements Listener {
         String card_number_word = Integer.toString(card_number);
         b.card_meta.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + card_number_word);
         b.card.setItemMeta(b.card_meta);
+        //GUIの座標を計算
         b.coordinate++;
+        b.coordinate2++;
+        //GUIにカードを配置
         b.inv2.setItem(b.coordinate, b.card);
-        this.b.child_score = b.child_score + card_number;
+        b.inv.setItem(b.coordinate2, b.card);
+        //最終スコアを計算
+        b.child_score = b.child_score + card_number;
         b.card_meta.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + "自分のスコアは" + b.child_score);
+        b.card_meta.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + "相手のスコアは" + b.child_score);
         b.card.setItemMeta(b.card_meta);
+        //カードを配置
         b.inv2.setItem(31, b.card);
+        b.inv.setItem(22, b.card);
         return;
     }
 
@@ -67,12 +75,20 @@ public class Data implements Listener {
         String card_number_word = Integer.toString(card_number);
         b.card_meta.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + card_number_word);
         b.card.setItemMeta(b.card_meta);
+        //GUIの座標を計算
         b.coordinate++;
+        b.coordinate2--;
+        //GUIに引いたカードをセット
         b.inv.setItem(b.coordinate, b.card);
-        this.b.parent_score = b.parent_score + card_number;
+        b.inv2.setItem(b.coordinate2, b.card);
+        //最終スコアを計算
+        b.parent_score = b.parent_score + card_number;
         b.card_meta.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + "自分のスコアは" + b.parent_score);
+        b.card_meta.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + "相手のスコアは" + b.parent_score);
         b.card.setItemMeta(b.card_meta);
+        //カードを配置
         b.inv.setItem(31, b.card);
+        b.inv2.setItem(22, b.card);
         return;
 
     }
